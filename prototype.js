@@ -48,6 +48,9 @@ const bookShelf = new BookShelf();
 bookShelf.addBook(new Book("lee", "자료구조"));
 bookShelf.addBook(new Book("kim", "c언어"));
 bookShelf.addBook(new Book("park", "자바"));
-console.log(bookShelf.toString());
-const tmpBookShelf = bookShelf;
-console.log(`복제${tmpBookShelf.toString()}`);
+
+const tmpBookShelf = Object.create(bookShelf);// 프로토타입으로 인스턴스를 복사를 한다.
+
+tmpBookShelf.setShelf([]);
+tmpBookShelf.addBook(new Book('json','crazy'));
+console.log(`복제전 ${tmpBookShelf.toString()},복제${bookShelf.toString()}`);
